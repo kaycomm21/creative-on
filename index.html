@@ -3,33 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Creative ON — 행사 기획·연출감독 김영근</title>
-  <meta name="description" content="축제·기념식·콘서트·기업행사. 2011년부터 현장을 켜온 기획·연출감독 김영근의 포트폴리오.">
+  <title>Creative ON | 행사 기획·연출감독 김영근</title>
+  <meta name="description" content="축제, 기념식, 콘서트, 기업행사. 2011년부터 현장의 큐를 불러온 기획·연출감독 김영근의 포트폴리오.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Creative ON — 행사 기획·연출감독 김영근">
-  <meta property="og:description" content="축제·기념식·콘서트·기업행사. 2011년부터 현장을 켜온 기획·연출감독의 포트폴리오.">
+  <meta property="og:title" content="Creative ON | 행사 기획·연출감독 김영근">
+  <meta property="og:description" content="무대는 켜지는 순간 끝나 있다. 2011년부터 축제, 기념식, 콘서트, 기업행사 현장.">
   <meta property="og:image" content="assets/img/parkmusic-01.webp">
-  <meta name="theme-color" content="#0c0c0d">
+  <meta name="theme-color" content="#141516">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-  <link rel="stylesheet" href="style.css?v=20260919b">
+  <link rel="preload" as="image" href="assets/img/yeongcheon-01.webp" fetchpriority="high">
+  <link rel="stylesheet" href="style.css?v=20261009">
 </head>
 <body>
+<a class="skip" href="#work">본문으로 건너뛰기</a>
 
 <!-- ===== NAV ===== -->
 <header class="nav" id="nav">
-  <a class="nav__logo" href="#top" aria-label="Creative ON 홈">
-    <span class="nav__dot"></span>Creative<b>ON</b>
+  <a class="nav__logo" href="#top" aria-label="Creative ON 처음으로">
+    <span class="tally" aria-hidden="true"></span>Creative<b>ON</b>
   </a>
-  <nav class="nav__menu" id="navMenu">
+  <nav class="nav__menu" id="navMenu" aria-label="주요 메뉴">
     <a href="#work">Work</a>
     <a href="#process">Process</a>
     <a href="#about">About</a>
     <a href="#archive">Archive</a>
-    <a href="#contact" class="nav__cta">Contact</a>
+    <a href="#contact" class="nav__cta">문의하기</a>
   </nav>
-  <button class="nav__burger" id="navBurger" aria-label="메뉴 열기" aria-expanded="false">
+  <button class="nav__burger" id="navBurger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="navMenu">
     <span></span><span></span>
   </button>
 </header>
@@ -37,164 +39,158 @@
 <main id="top">
 
 <!-- ===== HERO : work-first slider ===== -->
-<section class="hero" id="hero">
+<section class="hero" id="hero" aria-label="대표 현장">
   <div class="hero__slides" id="heroSlides"></div>
-  <div class="hero__shade"></div>
+  <div class="hero__shade" aria-hidden="true"></div>
 
   <div class="hero__copy">
-    <p class="hero__eyebrow reveal">행사 기획 · 연출감독 김영근</p>
-    <h1 class="hero__title reveal">
-      무대는<br>
-      켜지는 순간<br>
-      끝나 있다.
+    <p class="hero__eyebrow">행사 기획·연출감독 김영근</p>
+    <h1 class="hero__title">
+      <span class="ln"><span>무대는 켜지는 순간</span></span>
+      <span class="ln"><span>끝나 있다.</span></span>
     </h1>
-    <p class="hero__sub reveal">
-      리허설이 끝났을 때 이미 결과는 정해져 있습니다.<br class="br-pc">
-      2011년부터 축제·기념식·콘서트·기업행사의 현장을 켜왔습니다.
-    </p>
+    <p class="hero__sub">결판은 리허설에서 난다. 2011년부터 축제, 기념식, 콘서트, 기업행사 현장에서 큐를 불렀다.</p>
   </div>
 
-  <div class="hero__meta">
-    <div class="hero__caption" id="heroCaption">
-      <span class="hero__caption-client"></span>
-      <span class="hero__caption-title"></span>
-      <a class="hero__caption-link" href="#work">Learn more →</a>
+  <div class="hero__bar">
+    <div class="hero__caption" id="heroCaption" aria-live="polite">
+      <p class="hero__caption-meta"></p>
+      <p class="hero__caption-title"></p>
+      <button class="hero__caption-link" type="button" id="heroOpen">이 현장 자세히 보기</button>
     </div>
-    <ol class="hero__index" id="heroIndex"></ol>
+    <div class="hero__ctrl">
+      <ol class="hero__index" id="heroIndex" aria-label="슬라이드 선택"></ol>
+      <button class="hero__pause" id="heroPause" type="button" aria-label="슬라이드 일시정지" aria-pressed="false">
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
   </div>
-
-  <a class="hero__scroll" href="#manifesto" aria-label="아래로">
-    <span></span>
-  </a>
 </section>
 
 <!-- ===== MANIFESTO ===== -->
-<section class="manifesto" id="manifesto">
+<section class="manifesto" id="manifesto" aria-labelledby="manifestoTitle">
   <div class="wrap">
-    <p class="label reveal">Creative ON</p>
-    <h2 class="manifesto__title reveal">
-      좋은 행사는 화려하지 않습니다.<br>
-      <em>제시간에 켜지고, 사고 없이 꺼집니다.</em>
+    <h2 class="manifesto__title" id="manifestoTitle">
+      <span class="manifesto__q">좋은 행사가 뭐냐고요?</span>
+      제시간에 켜지고, 사고 없이 꺼지는 것.
     </h2>
     <div class="manifesto__grid">
-      <p class="manifesto__text reveal">
-        축제, 기념식, 콘서트, 기업행사. 종류는 달라도 현장에서 벌어지는 일은 같습니다.
-        큐시트가 있고, 리허설이 있고, 예정에 없던 변수가 있습니다.
-        Creative ON은 그 변수를 미리 지우는 일을 합니다. 기획서의 문장 하나가
-        현장에서 어떤 동선이 되는지 알고 쓰는 것, 그것이 16년 동안 한 일의 전부입니다.
+      <p class="manifesto__text">
+        축제, 기념식, 콘서트, 기업행사. 이름은 달라도 현장에서 벌어지는 일은 같다.
+        큐시트가 있고, 리허설이 있고, 예정에 없던 변수가 있다.
+        기획서의 문장 하나가 현장에서 어떤 동선이 되는지 알고 쓰는 것. 16년 동안 한 일은 그게 전부다.
       </p>
-      <ul class="stats reveal">
-        <li><b data-count="2011">2011</b><span>경력 시작</span></li>
-        <li><b data-count="16" data-suffix="년">16년</b><span>기획 · 연출</span></li>
-        <li><b data-count="4">4</b><span>축제 · 공연 · 기념식 · 기업행사</span></li>
-      </ul>
+      <dl class="facts">
+        <div><dt>첫 현장</dt><dd>2011</dd></div>
+        <div><dt>현장 경력</dt><dd>16<small>년차</small></dd></div>
+        <div><dt>여기 기록한 프로젝트</dt><dd id="factCount">28</dd></div>
+      </dl>
     </div>
   </div>
 </section>
 
 <!-- ===== WORK ===== -->
-<section class="work" id="work">
+<section class="work" id="work" aria-labelledby="workTitle">
   <div class="wrap">
-    <p class="label reveal">Work</p>
+    <h2 class="sr-only" id="workTitle">작업 사례</h2>
 
     <!-- HSAD 식 문장형 필터 -->
-    <div class="sentence reveal" id="sentence">
+    <div class="sentence" id="sentence">
       <span class="sentence__t">나는</span>
       <div class="sentence__slot">
-        <button class="sentence__btn" data-slot="who" aria-haspopup="listbox">
-          <span data-label>궁금한 사람</span><i></i>
+        <button class="sentence__btn" type="button" data-slot="who" aria-haspopup="listbox" aria-expanded="false">
+          <span data-label>궁금한 사람</span><i aria-hidden="true"></i>
         </button>
-        <ul class="sentence__menu" data-menu="who" role="listbox">
-          <li data-value="all">그냥 구경하는 사람</li>
-          <li data-value="gov">지자체·공공기관 담당자</li>
-          <li data-value="corp">기업 홍보·총무 담당자</li>
-          <li data-value="agency">기획사·제작사 동료</li>
+        <ul class="sentence__menu" data-menu="who" role="listbox" aria-label="나는 누구">
+          <li role="option" tabindex="-1" data-value="all">그냥 구경하는 사람</li>
+          <li role="option" tabindex="-1" data-value="gov">지자체·공공기관 담당자</li>
+          <li role="option" tabindex="-1" data-value="corp">기업 홍보·총무 담당자</li>
+          <li role="option" tabindex="-1" data-value="agency">기획사·제작사 동료</li>
         </ul>
       </div>
       <span class="sentence__t">이고,</span>
       <div class="sentence__slot">
-        <button class="sentence__btn" data-slot="what" aria-haspopup="listbox">
-          <span data-label>어떤 행사</span><i></i>
+        <button class="sentence__btn" type="button" data-slot="what" aria-haspopup="listbox" aria-expanded="false">
+          <span data-label>어떤 행사</span><i aria-hidden="true"></i>
         </button>
-        <ul class="sentence__menu" data-menu="what" role="listbox">
-          <li data-value="all">모든 행사</li>
-          <li data-value="festival">축제</li>
-          <li data-value="show">공연 · 콘서트</li>
-          <li data-value="ceremony">기념식 · 공식행사</li>
-          <li data-value="corp">기업행사</li>
+        <ul class="sentence__menu" data-menu="what" role="listbox" aria-label="궁금한 행사">
+          <li role="option" tabindex="-1" data-value="all">모든 행사</li>
+          <li role="option" tabindex="-1" data-value="festival">축제</li>
+          <li role="option" tabindex="-1" data-value="show">공연, 콘서트</li>
+          <li role="option" tabindex="-1" data-value="ceremony">기념식, 공식행사</li>
+          <li role="option" tabindex="-1" data-value="corp">기업행사</li>
         </ul>
       </div>
       <span class="sentence__t">사례가 궁금합니다.</span>
     </div>
 
-    <p class="work__count" id="workCount"></p>
+    <p class="work__count" id="workCount" aria-live="polite"></p>
     <div class="grid" id="workGrid"></div>
   </div>
 </section>
 
 <!-- ===== PROCESS ===== -->
-<section class="process" id="process">
+<section class="process" id="process" aria-labelledby="processTitle">
   <div class="wrap">
-    <p class="label reveal">Process</p>
-    <h2 class="h2 reveal">기획서와 현장 사이의 거리를<br>제가 좁힙니다.</h2>
+    <h2 class="h2" id="processTitle">종이 위의 기획을<br>현장의 큐로.</h2>
     <ol class="steps">
-      <li class="reveal">
+      <li>
         <span class="steps__n">01</span>
         <h3>과업 해석</h3>
-        <p>과업지시서·발주 목적·평가 기준을 먼저 읽습니다. 예쁜 아이디어보다 무엇으로 평가받는지가 먼저입니다.</p>
+        <p>과업지시서, 발주 목적, 평가 기준부터 읽는다. 예쁜 아이디어보다 무엇으로 평가받는지가 먼저.</p>
       </li>
-      <li class="reveal">
+      <li>
         <span class="steps__n">02</span>
-        <h3>기획 · 제안</h3>
-        <p>프로그램 구성, 공간·동선, 예산 배분, 안전 계획을 하나의 논리로 묶습니다. 제안서와 PT 방어까지.</p>
+        <h3>기획, 제안</h3>
+        <p>프로그램 구성, 공간과 동선, 예산 배분, 안전 계획을 하나의 논리로 묶는다. 제안서와 PT 방어까지.</p>
       </li>
-      <li class="reveal">
+      <li>
         <span class="steps__n">03</span>
         <h3>연출 설계</h3>
-        <p>큐시트, 무대·음향·조명·영상 시스템, 출연진 동선, 리허설 계획. 현장에서 바뀔 여지를 미리 줄입니다.</p>
+        <p>큐시트, 무대·음향·조명·영상 시스템, 출연진 동선, 리허설 계획. 현장에서 바뀔 여지를 미리 줄인다.</p>
       </li>
-      <li class="reveal">
+      <li>
         <span class="steps__n">04</span>
         <h3>현장 진행</h3>
-        <p>리허설부터 본공연, 철수까지. 콘솔 옆에서 큐를 부르고, 돌발 변수는 현장에서 결정합니다.</p>
+        <p>리허설부터 본공연, 철수까지. 콘솔 옆에서 큐를 부르고, 돌발 변수는 그 자리에서 결정한다.</p>
       </li>
-      <li class="reveal">
+      <li>
         <span class="steps__n">05</span>
-        <h3>정산 · 기록</h3>
-        <p>결과 보고와 정산 자료, 다음 회차를 위한 개선점까지 남깁니다. 행사는 끝나도 기록은 남습니다.</p>
+        <h3>정산, 기록</h3>
+        <p>결과 보고와 정산 자료, 다음 회차를 위한 개선점까지. 행사는 끝나도 기록은 남긴다.</p>
       </li>
     </ol>
   </div>
 </section>
 
 <!-- ===== ABOUT ===== -->
-<section class="about" id="about">
+<section class="about" id="about" aria-labelledby="aboutTitle">
   <div class="wrap about__grid">
-    <div class="about__photo reveal">
-      <img src="assets/img/profile.webp" alt="김영근 연출감독" id="profileImg"
-           onerror="this.parentElement.classList.add('about__photo--empty'); this.remove();">
-      <div class="about__photo-ph"><span>PROFILE<br>PHOTO</span></div>
+    <div class="about__head">
+      <!-- 프로필 사진: data/projects.js 의 SITE.profile 에 파일명을 넣으면 여기 표시 -->
+
+      <h2 class="about__name" id="aboutTitle">김영근</h2>
+      <p class="about__en">Kim Young-geun</p>
+      <p class="about__title">행사 기획·연출감독</p>
     </div>
     <div class="about__body">
-      <p class="label reveal">About</p>
-      <h2 class="h2 reveal">김영근<span class="about__en">Kim Young-geun</span></h2>
-      <p class="about__lead reveal">
-        음악을 전공하고 무대 뒤로 갔습니다. 2011년 이벤트 기획으로 시작해
-        공공 축제 입찰 제안, 기념식·개회식 연출, 콘서트 제작, 기업 행사까지
-        기획과 현장을 함께 맡아왔습니다.
+      <p class="about__lead">
+        음악을 전공하고 무대 뒤로 갔다. 2011년 이벤트 기획으로 시작해
+        공공 축제 입찰 제안, 기념식·개회식 연출, 콘서트 제작, 기업행사까지
+        기획과 현장을 같이 맡아왔다.
       </p>
-      <div class="about__cols reveal">
+      <div class="about__cols">
         <div>
-          <h4>합니다</h4>
+          <h3>합니다</h3>
           <ul>
-            <li>공공 축제·행사 입찰 제안서 기획 및 PT</li>
-            <li>기념식·개회식·준공식 연출 및 무대감독</li>
-            <li>콘서트·공연 제작 및 현장 큐 진행</li>
+            <li>공공 축제·행사 입찰 제안서 기획과 PT</li>
+            <li>기념식·개회식·준공식 연출, 무대감독</li>
+            <li>콘서트·공연 제작과 현장 큐 진행</li>
             <li>기업 IR·프로모션 행사 기획</li>
           </ul>
         </div>
         <div>
-          <h4>하지 않습니다</h4>
+          <h3>안 합니다</h3>
           <ul>
             <li>현장 없이 기획서만 쓰는 일</li>
             <li>안전 계획이 빠진 화려함</li>
@@ -202,69 +198,70 @@
           </ul>
         </div>
       </div>
-      <ol class="career reveal" id="career"></ol>
+      <ol class="career" id="career" aria-label="경력"></ol>
     </div>
   </div>
 </section>
 
 <!-- ===== ARCHIVE ===== -->
-<section class="archive" id="archive">
+<section class="archive" id="archive" aria-labelledby="archiveTitle">
   <div class="wrap">
-    <p class="label reveal">Archive</p>
-    <h2 class="h2 reveal">그 외 프로젝트</h2>
-    <table class="archive__table reveal" id="archiveTable">
-      <thead><tr><th>연도</th><th>프로젝트</th><th>역할</th></tr></thead>
-      <tbody></tbody>
-    </table>
+    <div class="archive__head">
+      <h2 class="h2" id="archiveTitle">사진은 없고<br>큐시트는 남은 현장.</h2>
+      <p class="archive__note">사진 없이 이력만 남긴 프로젝트 <span id="arcCount">20</span>건. 역할은 이력서 원문 그대로 옮겼다.</p>
+    </div>
+    <div class="archive__list" id="archiveList"></div>
   </div>
 </section>
 
 <!-- ===== CONTACT ===== -->
-<section class="contact" id="contact">
-  <div class="wrap">
-    <p class="label reveal">Contact</p>
-    <h2 class="h2 reveal">행사 이야기라면<br>일단 켜놓고 시작합시다.</h2>
-    <p class="contact__lead reveal">
-      협업, 연출 의뢰, 제안서 자문, 강연. 아래 폼 또는 이메일로 보내주시면 영업일 기준 1일 안에 답합니다.
-    </p>
+<section class="contact" id="contact" aria-labelledby="contactTitle">
+  <div class="wrap contact__grid">
+    <div class="contact__head">
+      <h2 class="h2" id="contactTitle">행사 이야기라면<br>일단 켜놓고 시작합시다.</h2>
+      <p class="contact__lead">협업, 연출 의뢰, 제안서 자문, 강연. 폼이 번거로우면 메일 한 줄도 좋다.</p>
+      <div class="mailbox">
+        <a class="mailbox__addr" id="mailLink" href="mailto:creativeoncompany@gmail.com">creativeoncompany@gmail.com</a>
+        <button class="mailbox__copy" id="mailCopy" type="button">주소 복사</button>
+      </div>
+    </div>
 
-    <form class="form reveal" id="contactForm" novalidate>
+    <form class="form" id="contactForm" novalidate>
       <div class="form__row">
-        <label>
-          <span>이름 · 소속</span>
-          <input type="text" name="name" required placeholder="홍길동 / ○○시 문화관광과">
-        </label>
-        <label>
-          <span>회신 받을 이메일</span>
-          <input type="email" name="email" required placeholder="you@example.com">
-        </label>
+        <div class="field">
+          <label for="f-name">이름, 소속</label>
+          <input id="f-name" type="text" name="name" required autocomplete="name" placeholder="예) 홍길동 / ○○시 문화관광과">
+        </div>
+        <div class="field">
+          <label for="f-email">회신 받을 이메일</label>
+          <input id="f-email" type="email" name="email" required autocomplete="email" placeholder="you@example.com">
+        </div>
       </div>
       <div class="form__row">
-        <label>
-          <span>행사 종류</span>
-          <select name="type">
+        <div class="field">
+          <label for="f-type">행사 종류</label>
+          <select id="f-type" name="type">
             <option>축제</option>
-            <option>공연 · 콘서트</option>
-            <option>기념식 · 공식행사</option>
+            <option>공연, 콘서트</option>
+            <option>기념식, 공식행사</option>
             <option>기업행사</option>
-            <option>제안서 · PT 자문</option>
+            <option>제안서, PT 자문</option>
             <option>기타</option>
           </select>
-        </label>
-        <label>
-          <span>예정 시기</span>
-          <input type="text" name="when" placeholder="2027년 5월 / 미정">
-        </label>
+        </div>
+        <div class="field">
+          <label for="f-when">예정 시기</label>
+          <input id="f-when" type="text" name="when" placeholder="예) 2027년 5월 / 미정">
+        </div>
       </div>
-      <label>
-        <span>내용</span>
-        <textarea name="message" rows="5" required placeholder="행사 개요, 규모, 궁금한 점을 적어주세요."></textarea>
-      </label>
+      <div class="field">
+        <label for="f-msg">내용</label>
+        <textarea id="f-msg" name="message" rows="5" required placeholder="행사 개요, 규모, 궁금한 점"></textarea>
+      </div>
       <div class="form__foot">
-        <button type="submit" class="btn">보내기 →</button>
-        <a class="form__mail" id="mailLink" href="#">creativeoncompany@gmail.com</a>
+        <button type="submit" class="btn">보내기</button>
+        <p class="form__status" id="formStatus" role="status"></p>
       </div>
-      <p class="form__status" id="formStatus" role="status"></p>
     </form>
   </div>
 </section>
@@ -273,32 +270,40 @@
 
 <footer class="foot">
   <div class="wrap foot__grid">
-    <div>
-      <p class="foot__logo"><span class="nav__dot"></span>Creative<b>ON</b></p>
-      <p class="foot__desc">행사 기획 · 연출감독 김영근 · 대구</p>
-    </div>
-    <p class="foot__copy">© <span id="year"></span> Creative ON. All rights reserved.</p>
+    <p class="foot__logo"><span class="tally" aria-hidden="true"></span>Creative<b>ON</b></p>
+    <p class="foot__desc">행사 기획·연출감독 김영근, 대구</p>
+    <p class="foot__copy">© <span id="year">2026</span> Creative ON</p>
   </div>
 </footer>
 
-<!-- ===== PROJECT MODAL ===== -->
+<!-- ===== PROJECT DETAIL ===== -->
 <div class="modal" id="modal" aria-hidden="true">
-  <div class="modal__bg" data-close></div>
   <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <button class="modal__close" data-close aria-label="닫기">×</button>
-    <div class="modal__gallery" id="modalGallery"></div>
-    <div class="modal__body">
-      <p class="modal__meta" id="modalMeta"></p>
-      <h3 class="modal__title" id="modalTitle"></h3>
-      <p class="modal__role" id="modalRole"></p>
-      <p class="modal__summary" id="modalSummary"></p>
-      <ul class="modal__points" id="modalPoints"></ul>
-      <p class="modal__org" id="modalOrg"></p>
+    <div class="modal__top">
+      <p class="modal__crumb" id="modalCrumb"></p>
+      <div class="modal__nav">
+        <button type="button" class="modal__step" id="modalPrev" aria-label="이전 프로젝트">이전</button>
+        <button type="button" class="modal__step" id="modalNext" aria-label="다음 프로젝트">다음</button>
+        <button type="button" class="modal__close" data-close aria-label="닫기"><span aria-hidden="true"></span></button>
+      </div>
+    </div>
+    <div class="modal__grid">
+      <div class="modal__body">
+        <p class="modal__meta" id="modalMeta"></p>
+        <h3 class="modal__title" id="modalTitle"></h3>
+        <dl class="modal__spec">
+          <div><dt>역할</dt><dd id="modalRole"></dd></div>
+          <div><dt>발주</dt><dd id="modalClient"></dd></div>
+        </dl>
+        <p class="modal__summary" id="modalSummary"></p>
+        <ul class="modal__points" id="modalPoints"></ul>
+      </div>
+      <div class="modal__gallery" id="modalGallery"></div>
     </div>
   </div>
 </div>
 
-<script src="data/projects.js?v=20260919b"></script>
-<script src="script.js?v=20260919b"></script>
+<script src="data/projects.js?v=20261009"></script>
+<script src="script.js?v=20261009"></script>
 </body>
 </html>

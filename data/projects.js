@@ -15,6 +15,8 @@ window.SITE = {
   role: "행사 기획·연출감독",
   email: "creativeoncompany@gmail.com",
   since: 2011,
+  // 프로필 사진. 영근님 확인 후 assets/img 에 넣고 파일명(확장자 제외)을 적는다. 예: "profile"
+  profile: "",
   // 문의 폼 엔드포인트. Formspree 가입 후 "https://formspree.io/f/xxxxxxx" 로 교체.
   // 비어 있으면 자동으로 이메일 앱(mailto)으로 전송된다.
   form_endpoint: ""
