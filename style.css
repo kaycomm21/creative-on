@@ -387,3 +387,39 @@ body.is-locked { overflow: hidden; }
   .hero__index button.is-active::after { animation: none; transform: scaleX(1); }
   .card, .card__media img, .modal__panel { transition: opacity .2s ease; transform: none !important; }
 }
+
+/* ============================================================
+   강조 체계 (2026-10-10)
+   em    = 헤드라인 핵심 키워드. 액센트 컬러.
+   b     = 본문 핵심 문장. 잉크색 유지 + 굵기로만 강조 (과하지 않게)
+   mark  = 본문에서 가장 중요한 한 줄. 형광펜 밑줄.
+   ============================================================ */
+.hero__title em,
+.manifesto__title em,
+.h2 em {
+  font-style: normal;
+  color: var(--on);
+}
+/* 어두운 배경 위 액센트는 살짝 밝혀서 대비 확보 */
+.hero__title em { color: #ff6a42; }
+
+.manifesto__text b,
+.about__lead b,
+.steps p b,
+.archive__note b,
+.contact__lead b,
+.hero__sub b {
+  font-weight: 700;
+  color: inherit;
+}
+.hero__sub b { color: #fff; }
+
+mark {
+  background: linear-gradient(transparent 58%, rgba(255, 74, 28, .24) 58%);
+  color: inherit;
+  font-weight: 700;
+  padding: 0 1px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  mark { background-size: 100% 100%; }
+}
