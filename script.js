@@ -186,10 +186,10 @@
       a.innerHTML = `
         <figure class="card__media"><img src="${THUMB(p.cover)}" srcset="${THUMB(p.cover)} 640w, ${IMG(p.cover)} 2000w" sizes="${sizes}" alt="${esc(p.title)} 현장 사진" loading="lazy" decoding="async"></figure>
         <div class="card__meta">
-          <span class="card__year">${p.year}</span>
+          <p class="card__client">${esc(p.client)}</p>
           <h3 class="card__title">${esc(String(p.title).replace(/^\d{4}\s+/, ""))}</h3>
           <p class="card__role">${esc(p.role)}</p>
-          <p class="card__client">${esc(p.client)}</p>
+          <p class="card__tags"><span class="card__year">${p.year}</span>${p.what.map(w => `<span class="card__field">${WHAT[w]}</span>`).join("")}</p>
           ${wide ? `<span class="card__go" aria-hidden="true">현장 보기</span>` : ""}
         </div>`;
       if (animate && !reduce) {
@@ -211,8 +211,13 @@
     $("#modalCrumb").textContent = `${idx + 1} / ${list.length}`;
     $("#modalMeta").textContent = `${p.year}.${p.month}`;
     $("#modalTitle").textContent = p.title;
-    $("#modalRole").textContent = p.role;
-    $("#modalClient").textContent = p.client;
+    const specEl = $("#modalSpec");
+    if (specEl) specEl.innerHTML = [
+      ["일시", `${p.year}.${p.month}`],
+      ["발주처", p.client],
+      ["분야", p.what.map(w => WHAT[w]).join(", ")],
+      ["역할", p.role]
+    ].map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("");
     $("#modalSummary").textContent = p.summary;
     $("#modalPoints").innerHTML = p.points.map(x => `<li>${esc(x)}</li>`).join("");
     $("#modalGallery").innerHTML = p.images.map((n, i) =>

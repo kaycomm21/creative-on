@@ -423,3 +423,67 @@ mark {
 @media (prefers-reduced-motion: no-preference) {
   mark { background-size: 100% 100%; }
 }
+
+/* ============================================================
+   CAPABILITY — 유니원 BUSINESS 패턴 (2026-10-23)
+   실적보다 먼저 "무엇을 맡는 사람인가"를 규정한다.
+   ============================================================ */
+.sec-label {
+  font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--ink-3); margin-bottom: 20px;
+}
+.sec-label::before {
+  content: ""; display: inline-block; width: 18px; height: 1px;
+  background: var(--on); margin-right: 10px; vertical-align: 4px;
+}
+.cap { padding: var(--sec) 0; background: var(--white); border-top: 1px solid var(--line); }
+.cap__list {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 0; margin-top: clamp(48px, 6vw, 80px);
+  border-top: 2px solid var(--ink);
+}
+.cap__list li {
+  padding: 28px 26px 34px 0; border-right: 1px solid var(--line);
+}
+.cap__list li:last-child { border-right: 0; }
+.cap__list li + li { padding-left: 26px; }
+.cap__n {
+  display: block; font-size: 12px; font-weight: 700; letter-spacing: .1em;
+  color: var(--on); margin-bottom: 16px; font-variant-numeric: tabular-nums;
+}
+.cap__list h3 {
+  font-size: clamp(17px, 1.5vw, 20px); font-weight: 750; letter-spacing: -0.03em;
+  line-height: 1.35; margin-bottom: 12px;
+}
+.cap__list p { font-size: 15px; line-height: 1.7; color: var(--ink-2); }
+.cap__tag {
+  margin-top: 14px; font-size: 13px !important; color: var(--ink-3) !important;
+  padding-top: 12px; border-top: 1px solid var(--line);
+}
+@media (max-width: 1000px) {
+  .cap__list { grid-template-columns: repeat(2, 1fr); }
+  .cap__list li:nth-child(2n) { border-right: 0; }
+  .cap__list li:nth-child(n+3) { border-top: 1px solid var(--line); }
+}
+@media (max-width: 600px) {
+  .cap__list { grid-template-columns: 1fr; }
+  .cap__list li { border-right: 0; padding-left: 0 !important; padding-right: 0; }
+  .cap__list li + li { border-top: 1px solid var(--line); }
+}
+
+.process__lead {
+  margin-top: 24px; font-size: 17px; line-height: 1.8; color: rgba(255,255,255,.72); max-width: 44em;
+}
+
+/* 카드 메타: 발주처를 제목 위로 (온앤미 패턴) + 분야 태그 (유니원 FIELD) */
+.card__client {
+  font-size: 13px; font-weight: 700; letter-spacing: .02em;
+  color: var(--on); margin-bottom: 8px;
+}
+.card__tags {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 14px;
+}
+.card__field {
+  font-size: 12px; padding: 3px 10px; border: 1px solid var(--line);
+  border-radius: 100px; color: var(--ink-3); background: var(--white);
+}
