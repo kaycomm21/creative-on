@@ -1,0 +1,55 @@
+/* ============================================================
+   Creative ON — motion.css (2026-10-31)
+   사진 모션 3종. 이 파일과 motion.js 를 index.html 에서 빼면 원상복구된다.
+   1) 히어로 Ken Burns : 슬라이드마다 방향이 다른 느린 줌·패닝
+   2) 카드 마스크 리빌 : 스크롤 진입 시 아래에서 위로 벗겨지듯 등장
+   3) 카드 패럴랙스    : 스크롤에 따라 사진이 프레임 안에서 미세하게 이동
+   transform·clip-path 만 쓴다 (레이아웃 재계산 없음).
+   ============================================================ */
+
+@media (prefers-reduced-motion: no-preference) {
+
+  /* ---------- 1) 히어로 Ken Burns ----------
+     모든 슬라이드에 애니메이션을 걸어두되 비활성 슬라이드는 멈춰둔다.
+     그래서 슬라이드가 바뀔 때 페이드아웃 중인 사진이 튀지 않는다. */
+  .hero__slide {
+    transition: opacity 1.2s ease;
+    animation: kbA 18s ease-in-out infinite alternate both;
+    animation-play-state: paused;
+    will-change: transform;
+  }
+  .hero__slide:nth-child(even) { animation-name: kbB; }
+  .hero__slide:nth-child(3n)   { animation-name: kbC; }
+  .hero__slide.is-active { animation-play-state: running; }
+  .hero.is-paused .hero__slide { animation-play-state: paused; }
+
+  @keyframes kbA { from { transform: scale(1.14) translate3d(-2.5%, 1.5%, 0); } to { transform: scale(1.03) translate3d(1.5%, -1%, 0); } }
+  @keyframes kbB { from { transform: scale(1.03) translate3d(2%, -1.5%, 0); }  to { transform: scale(1.14) translate3d(-1.5%, 1%, 0); } }
+  @keyframes kbC { from { transform: scale(1.12) translate3d(0, 2.5%, 0); }   to { transform: scale(1.02) translate3d(0, -1.5%, 0); } }
+
+  /* ---------- 2) 카드 마스크 리빌 + 3) 패럴랙스 ----------
+     사진을 프레임보다 12% 크게 깔아 패럴랙스 이동 여유를 만든다. */
+  @property --s { syntax: "<number>"; inherits: false; initial-value: 1; }
+
+  .card__media { position: relative; }
+  .card__media img {
+    position: relative; top: -6%; height: 112%;
+    --s: 1;
+    transform: translate3d(0, var(--py, 0px), 0) scale(var(--s));
+    transition: --s 1.1s cubic-bezier(.2,.7,.2,1);
+    will-change: transform;
+  }
+  .motion-ready .card__media {
+    clip-path: inset(100% 0 0 0);
+    transition: clip-path 1s cubic-bezier(.77,0,.18,1);
+  }
+  .motion-ready .card__media img { --s: 1.18; }
+  .motion-ready .card__media.is-shown { clip-path: inset(0 0 0 0); }
+  .motion-ready .card__media.is-shown img { --s: 1; }
+
+  /* 기존 호버 확대를 패럴랙스와 충돌 없이 다시 연결 */
+  @media (hover: hover) {
+    .card:hover .card__media.is-shown img { --s: 1.04; transform: translate3d(0, var(--py, 0px), 0) scale(var(--s)); transition: --s .7s cubic-bezier(.2,.7,.2,1); }
+  }
+  .card:active .card__media.is-shown img { --s: 1.015; }
+}
